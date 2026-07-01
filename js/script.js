@@ -110,21 +110,4 @@ if (contactForm) {
   });
 }
 
-document.querySelectorAll('.ig-container').forEach(container => {
-  const loader = document.createElement('div');
-  loader.className = 'ig-loader';
-  loader.innerHTML = '<div class="spinner"></div>';
-  container.appendChild(loader);
 
-  const checkEmbed = setInterval(() => {
-    if (container.querySelector('iframe')) {
-      loader.style.display = 'none';
-      clearInterval(checkEmbed);
-    }
-  }, 500);
-
-  setTimeout(() => {
-    loader.style.display = 'none';
-    clearInterval(checkEmbed);
-  }, 10000);
-});
