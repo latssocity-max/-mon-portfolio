@@ -66,31 +66,49 @@ function startCounters(container) {
   counters.forEach(c => animateCounter(c));
 }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      startCounters(entry.target);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0, rootMargin: '-50px 0px -50px 0px' });
+let countersAnimated = false;
 
-const aboutSection = document.getElementById('a-propos');
-if (aboutSection) {
-  observer.observe(aboutSection);
+function triggerCounters() {
+  if (countersAnimated) return;
+  const section = document.getElementById('a-propos');
+  if (!section) return;
+  const rect = section.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    countersAnimated = true;
+    startCounters(section);
+  }
 }
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        triggerCounters();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0 });
+  const aboutSection = document.getElementById('a-propos');
+  if (aboutSection) observer.observe(aboutSection);
+}
+
+window.addEventListener('scroll', triggerCounters, { passive: true });
+triggerCounters();
 
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-contactForm.addEventListener('submit', (e) => {
-  const btn = contactForm.querySelector('.btn');
-  btn.disabled = true;
-  btn.textContent = 'Envoi en cours...';
-
-  formMessage.className = 'form-message';
-  formMessage.textContent = '';
-});
+if (contactForm) {
+  contactForm.addEventListener('submit', () => {
+    const btn = contactForm.querySelector('.btn');
+    btn.disabled = true;
+    btn.textContent = 'Envoi en cours...';
+    if (formMessage) {
+      formMessage.className = 'form-message';
+      formMessage.textContent = '';
+    }
+  });
+}
 
 document.querySelectorAll('.ig-container').forEach(container => {
   const loader = document.createElement('div');
