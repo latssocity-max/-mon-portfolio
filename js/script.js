@@ -40,6 +40,42 @@ window.addEventListener('scroll', () => {
   }
 });
 
+function animateCounter(el) {
+  const target = parseInt(el.getAttribute('data-target'));
+  const duration = 2000;
+  const start = performance.now();
+
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    el.textContent = current + (target >= 1000 ? '+' : '+');
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    } else {
+      el.textContent = target.toLocaleString('fr-FR') + '+';
+    }
+  }
+
+  requestAnimationFrame(update);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.stat-number[data-target]');
+      counters.forEach(c => animateCounter(c));
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const statsSection = document.querySelector('.about-stats');
+if (statsSection) {
+  observer.observe(statsSection);
+}
+
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
