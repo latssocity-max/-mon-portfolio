@@ -61,19 +61,23 @@ function animateCounter(el) {
   requestAnimationFrame(update);
 }
 
+function startCounters(container) {
+  const counters = container.querySelectorAll('.stat-number[data-target]');
+  counters.forEach(c => animateCounter(c));
+}
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      const counters = entry.target.querySelectorAll('.stat-number[data-target]');
-      counters.forEach(c => animateCounter(c));
+      startCounters(entry.target);
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0, rootMargin: '-50px 0px -50px 0px' });
 
-const statsSection = document.querySelector('.about-stats');
-if (statsSection) {
-  observer.observe(statsSection);
+const aboutSection = document.getElementById('a-propos');
+if (aboutSection) {
+  observer.observe(aboutSection);
 }
 
 const contactForm = document.getElementById('contactForm');
