@@ -3,7 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yalatif Fofana</title>
+  <meta name="description" content="Yalatif Fofana — créateur visuel passionné par le design, la vidéo et les créations. Découvrez mon portfolio.">
+  <meta name="author" content="Yalatif Fofana">
+  <meta property="og:title" content="Yalatif Fofana — Portfolio Créatif">
+  <meta property="og:description" content="Design, vidéo &amp; créations visuelles.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://latssocity-max.github.io/-mon-portfolio">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>Yalatif Fofana — Portfolio Créatif</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -135,10 +142,13 @@
     <div class="container">
       <h2 class="section-title">Me contacter</h2>
       <div class="contact-content">
-        <form class="contact-form" id="contactForm">
-          <input type="text" placeholder="Votre nom" required>
-          <input type="email" placeholder="Votre email" required>
-          <textarea placeholder="Votre message" rows="5" required></textarea>
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/latssocity@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="name" placeholder="Votre nom" required>
+          <input type="email" name="email" placeholder="Votre email" required>
+          <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+          <div class="form-message" id="formMessage"></div>
           <button type="submit" class="btn">Envoyer</button>
         </form>
         <div class="contact-info">

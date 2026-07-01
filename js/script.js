@@ -1,4 +1,3 @@
-// Menu mobile
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
@@ -12,7 +11,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Filtres de la galerie
 const filterBtns = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
 
@@ -33,7 +31,6 @@ filterBtns.forEach(btn => {
   });
 });
 
-// Navigation au scroll
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
@@ -41,4 +38,35 @@ window.addEventListener('scroll', () => {
   } else {
     navbar.style.borderBottomColor = 'rgba(124, 58, 237, 0.2)';
   }
+});
+
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
+contactForm.addEventListener('submit', (e) => {
+  const btn = contactForm.querySelector('.btn');
+  btn.disabled = true;
+  btn.textContent = 'Envoi en cours...';
+
+  formMessage.className = 'form-message';
+  formMessage.textContent = '';
+});
+
+document.querySelectorAll('.ig-container').forEach(container => {
+  const loader = document.createElement('div');
+  loader.className = 'ig-loader';
+  loader.innerHTML = '<div class="spinner"></div>';
+  container.appendChild(loader);
+
+  const checkEmbed = setInterval(() => {
+    if (container.querySelector('iframe')) {
+      loader.style.display = 'none';
+      clearInterval(checkEmbed);
+    }
+  }, 500);
+
+  setTimeout(() => {
+    loader.style.display = 'none';
+    clearInterval(checkEmbed);
+  }, 10000);
 });
