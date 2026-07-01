@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yalatif Fofana</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">Yalatif Fofana</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#a-propos">À propos</a></li>
+        <li><a href="#creations">Créations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section id="accueil" class="hero">
+    <div class="container hero-content">
+      <h1 class="hero-title">Yalatif <span class="highlight">Fofana</span></h1>
+      <p class="hero-subtitle">Créateur visuel — design, vidéo &amp; créations</p>
+      <a href="#creations" class="btn">Voir mes créations</a>
+      <div class="hero-socials">
+        <a href="https://www.instagram.com/yalatif_y_fofana" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/193mdz6Gc2/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@latsvisual" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="a-propos" class="about">
+    <div class="container">
+      <h2 class="section-title">À propos de moi</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Je suis Yalatif Fofana, créateur passionné par le design, la vidéo et les visuels.</p>
+          <p>Sur ce site, vous retrouverez l'ensemble de mes créations. Contactez-moi pour toute question ou collaboration !</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Projets réalisés</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10K+</span>
+            <span class="stat-label">Abonnés</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="creations" class="creations">
+    <div class="container">
+      <h2 class="section-title">Mes créations</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">Tout</button>
+        <button class="filter-btn" data-filter="image">Images</button>
+        <button class="filter-btn" data-filter="video">Vidéos</button>
+      </div>
+      <div class="gallery" id="gallery">
+
+        <div class="gallery-item" data-category="image">
+          <a href="https://www.instagram.com/p/DaAA7aMDn9X/" target="_blank" class="gallery-link">
+            <div class="gallery-media">
+              <div class="placeholder-img">
+                <i class="fab fa-instagram"></i>
+                <span>Voir sur Instagram</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Publication Instagram</h3>
+              <p>Voir ma création</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item" data-category="video">
+          <div class="gallery-media ig-container">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DZ-koaMCoSh/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;margin:0;max-width:540px;min-width:326px;padding:0;width:99.375%;">
+            </blockquote>
+          </div>
+          <div class="gallery-info">
+            <h3>Reel Instagram</h3>
+            <p>Ma création</p>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="video">
+          <a href="https://www.instagram.com/reel/DaIHQkZglQ0/" target="_blank" class="gallery-link">
+            <div class="gallery-media">
+              <div class="placeholder-img video-placeholder">
+                <i class="fab fa-instagram"></i>
+                <span>Voir sur Instagram</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Reel Instagram</h3>
+              <p>Voir ma création</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="gallery-item" data-category="video">
+          <a href="https://www.instagram.com/reel/DaBwLLesHcB/" target="_blank" class="gallery-link">
+            <div class="gallery-media">
+              <div class="placeholder-img video-placeholder">
+                <i class="fab fa-instagram"></i>
+                <span>Voir sur Instagram</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h3>Reel Instagram</h3>
+              <p>Voir ma création</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Me contacter</h2>
+      <div class="contact-content">
+        <form class="contact-form" id="contactForm">
+          <input type="text" placeholder="Votre nom" required>
+          <input type="email" placeholder="Votre email" required>
+          <textarea placeholder="Votre message" rows="5" required></textarea>
+          <button type="submit" class="btn">Envoyer</button>
+        </form>
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> latssocity@gmail.com</p>
+          <div class="contact-socials">
+            <a href="https://www.instagram.com/yalatif_y_fofana" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/193mdz6Gc2/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@latsvisual" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Yalatif Fofana. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>
